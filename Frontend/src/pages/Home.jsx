@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
   return (
-    <div className="text-white">
+    <div className="text-white min-h-screen">
       <ToastContainer
         autoClose={5000} // Global auto close time for all toasts
         position="top-right"

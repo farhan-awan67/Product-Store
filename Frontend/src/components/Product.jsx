@@ -34,6 +34,7 @@ const Product = () => {
               <img
                 src={product.image.url}
                 alt={product.name}
+                loading="lazy"
                 className="w-full h-48 object-cover rounded-md"
               />
               <div className="p-2">

@@ -26,7 +26,7 @@ export const ProductContextProvider = ({ children }) => {
   const addProduct = async (formData) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/products",
+        "https://product-store-322t.onrender.com/products",
         formData,
         {
           headers: {
@@ -71,7 +71,9 @@ export const ProductContextProvider = ({ children }) => {
 
 
   const getProducts = async () => {
-    const products = await axios.get("http://localhost:3000/products");
+    const products = await axios.get(
+      "https://product-store-322t.onrender.com/products"
+    );
     setProduct(products.data);
   };
 
@@ -86,7 +88,7 @@ export const ProductContextProvider = ({ children }) => {
     }
     try {
       const res = await axios.delete(
-        `http://localhost:3000/product/${pId}/delete`
+        `https://product-store-322t.onrender.com/product/${pId}/delete`
       );
       if (res.status === 200) {
         toast.success("Product deleted successfully!");
@@ -109,7 +111,7 @@ export const ProductContextProvider = ({ children }) => {
   const updateProduct = async () => {
     try {
       const res = await axios.put(
-        `http://localhost:3000/product/${editData._id}/update`,
+        `https://product-store-322t.onrender.com/product/${editData._id}/update`,
         editProduct,
         {
           headers: {
