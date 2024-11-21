@@ -138,7 +138,7 @@ const Modal = () => {
                   </div>
                 )}
                 <div>
-                  <label>Product Image</label>
+                  <label>Product Image /*JPG, PNG, JPEG*/</label>
                   <input type="file" name="image" onChange={handleFileChange} />
                 </div>
                 <button className="bg-green-600 rounded" type="submit">

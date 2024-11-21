@@ -127,6 +127,9 @@ const CreatePage = () => {
             placeholder="Product Price"
             onChange={handleChange}
           />
+          <label htmlFor="" className="text-white block mb-1">
+            Image /*JPG, PNG, JPEG*/
+          </label>
           <input
             className="w-full px-2 py-2 text-white rounded-md bg-transparent mb-4 border-2 border-white placeholder:text-white outline-none"
             type="file"
