@@ -7,8 +7,7 @@ const connectDb = require("./db");
 const productRoutes = require("./routes/product");
 
 const corsOptions = {
-  // origin: "https://product-store-lac-one.vercel.app", // Allow only this origin
-  origin: "http://localhost:5173/", // Allow only this origin
+  origin: "https://product-store-lac-one.vercel.app", // Allow only this origin
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allow these methods
   credentials: true, // Allow credentials (like cookies)
   // optionsSuccessStatus: 204, // Some legacy browsers (IE11, various SmartTVs) choke on 204
