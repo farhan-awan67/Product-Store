@@ -37,21 +37,19 @@ export const ProductContextProvider = ({ children }) => {
       );
 
       if (response.status === 201) {
-        setTimeout(() => {
-          toast.success(
-            "Product added successfully!",
-            {
-              style: {
-                backgroundColor: "white", // Set background color (Tomato red)
-                color: "green", // Set text color (white)
-                fontWeight: "bold", // Set font weight
-                borderRadius: "10px", // Rounded corners
-                marginTop: "2px", // margin top
-              },
+        toast.success(
+          "Product added successfully!",
+          {
+            style: {
+              backgroundColor: "white", // Set background color (Tomato red)
+              color: "green", // Set text color (white)
+              fontWeight: "bold", // Set font weight
+              borderRadius: "10px", // Rounded corners
+              marginTop: "2px", // margin top
             },
-            5000
-          );
-        });
+          },
+          5000
+        );
         getProducts();
       } else {
         // If the status is not 201, show a failure toast
