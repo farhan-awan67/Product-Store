@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { productContext } from "../context/productContext";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const CreatePage = () => {
@@ -100,6 +100,16 @@ const CreatePage = () => {
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000} // Global auto close time for all toasts
+        hideProgressBar={false} // Show progress bar
+        newestOnTop={true} // Show newest toasts on top
+        closeOnClick={true} // Close on click
+        rtl={false} // Right-to-left (set to true if needed)
+        pauseOnFocusLoss={false} // Pause when focus is lost
+        draggable={false} // Make it non-draggable
+      />
       <div className="w-full h-screen max-w-md mx-auto p-2">
         <h1 className="text-3xl text-white font-semibold mt-4 text-center">
           Create New Product

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Product from "../components/Product";
 import Modal from "../components/Modal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { productContext } from "../context/productContext";
 
 const Home = () => {
+  const { products, showModel } = useContext(productContext);
   return (
     <div className="text-white min-h-screen">
       <ToastContainer
@@ -18,7 +20,13 @@ const Home = () => {
         draggable={false} // Make it non-draggable
       />
       <Modal />
-      <Product />
+      {products.length === 0 ? (
+        <div className="spinner">
+          <div className="spin"></div>
+        </div>
+      ) : (
+        <Product />
+      )}
     </div>
   );
 };

@@ -59,7 +59,10 @@ const Modal = () => {
     let isValid = true; // Flag to track if form is valid
     Object.entries(formData).forEach(([key, value]) => {
       validConfig[key].some((rule) => {
-        if (rule.required && !value) {
+        if (
+          rule.required &&
+          (value === "" || value === null || (key === "image" && !value?.size))
+        ) {
           errorsData[key] = rule.message;
 
           toast.error(rule.message, {
