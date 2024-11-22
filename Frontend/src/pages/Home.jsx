@@ -26,9 +26,9 @@ const Home = () => {
           <div className="spin"></div>
         </div>
       ) : products.length === 0 ? (
-        <div className="flex justify-center items-center gap-1">
+        <div className="flex justify-center items-center gap-1 mt-[25px]">
           <p className="text-white">No products available</p>{" "}
-          <Link to={"/create"} className="text-blue-700">
+          <Link to={"/create"} className="text-blue-700 underline">
             add product
           </Link>
         </div> // Message if there are no products
