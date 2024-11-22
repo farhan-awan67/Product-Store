@@ -10,6 +10,7 @@ export const ProductContextProvider = ({ children }) => {
   const [showModel, setShowModel] = useState(false);
   const [editData, setEditData] = useState(null);
   const [editProduct, setEditProduct] = useState();
+  const [isLoading, setIsLoading] = useState(true); // State for loading status
 
   const handleError = (error) => {
     if (error.response) {
@@ -69,12 +70,26 @@ export const ProductContextProvider = ({ children }) => {
     }
   };
 
-
   const getProducts = async () => {
-    const products = await axios.get(
-      "https://product-store-322t.onrender.com/products"
-    );
-    setProduct(products.data);
+    setIsLoading(true); // Start loading
+    try {
+      const products = await axios.get(
+        "https://product-store-322t.onrender.com/products"
+      );
+      setProduct(products.data);
+    } catch (error) {
+      toast.error("Failed to get products.", {
+        style: {
+          backgroundColor: "white", // Set background color (Tomato red)
+          color: "red", // Set text color (white)
+          fontWeight: "bold", // Set font weight
+          borderRadius: "10px", // Rounded corners
+          marginTop: "2px", // margin top
+        },
+      });
+    } finally {
+      setIsLoading(false); // End loading
+    }
   };
 
   useEffect(() => {
@@ -149,6 +164,7 @@ export const ProductContextProvider = ({ children }) => {
         editProduct,
         setEditProduct,
         deleteProduct,
+        isLoading,
       }}
     >
       {children}

@@ -4,9 +4,10 @@ import Modal from "../components/Modal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { productContext } from "../context/productContext";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  const { products, showModel } = useContext(productContext);
+  const { products, isLoading } = useContext(productContext);
   return (
     <div className="text-white min-h-screen">
       <ToastContainer
@@ -20,12 +21,19 @@ const Home = () => {
         draggable={false} // Make it non-draggable
       />
       <Modal />
-      {products.length === 0 ? (
+      {isLoading ? (
         <div className="spinner">
           <div className="spin"></div>
         </div>
+      ) : products.length === 0 ? (
+        <div className="flex justify-center items-center gap-1">
+          <p className="text-white">No products available</p>{" "}
+          <Link to={"/create"} className="text-blue-700">
+            add product
+          </Link>
+        </div> // Message if there are no products
       ) : (
-        <Product />
+        <Product /> // Render products if available
       )}
     </div>
   );
